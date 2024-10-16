@@ -27,4 +27,4 @@ Para ejecutar el proyecto en tu máquina local, sigue estos pasos:
    cd Talleres-TypeScript
 2. **Abre el archivo HTML** :
 
-Abre `index.html` en tu navegador preferido. Para hacerlo de la manera mas sencilla, asegúrate de utilizar herramientas como Live Server en Visual Studio Code.
+   Abre `index.html` en tu navegador preferido. Para hacerlo de la manera mas sencilla, asegúrate de utilizar herramientas como Live Server en Visual Studio Code.
