@@ -24,7 +24,7 @@ async function createSeriesTable() {
       // Mostrar el promedio en el elemento correspondiente
       const avgElement = document.getElementById('average-seasons');
       if (avgElement) {
-          avgElement.innerText = `Average Seasons: ${avgSeasons.toFixed(0)}`;
+          avgElement.innerText = `Seasons average: ${avgSeasons.toFixed(0)}`;
       }
   } catch (error) {
       console.error('Error loading series table:', error);

@@ -21,20 +21,26 @@
     </nav>
     <div class="container">
         <h1 class="my-4">TV Series</h1>
-        <table id="seriesTable" class="table table-striped">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Channel</th>
-                    <th>Seasons</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Las filas se llenarán dinámicamente desde main.ts -->
-            </tbody>
-        </table>
-        <p id="average-seasons"></p>
+        <div class="table-responsive">
+            <table id="seriesTable" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="h4 table-dark" colspan="4">TV Series</th>
+                    </tr>
+                </thead>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Channel</th>
+                        <th>Seasons</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <p id="average-seasons"></p>
+        </div>
+
     </div>
     <script type="module" src="./src/scripts/models/serie.js"></script>
     <script type="module" src="./src/scripts/data/data.js"></script>
