@@ -1,9 +1,9 @@
 # TV Series
 
 ## Estudiante 
-- Nombre: Gian Karlo Lanziano Baracaldo
-- Codigo: 202424438
-- Nota: El siguiente repositorio muestra el desarrollo de los talleres 1 y 2 de TypeScript de la materia ISIS-2603 Seccion 3
+- **Nombre:** Gian Karlo Lanziano Baracaldo
+- **Codigo:** 202424438
+- **Nota:** El siguiente repositorio muestra el desarrollo de los talleres 1 y 2 de TypeScript de la materia ISIS-2603 Seccion 3
 
 ## Descripción
 
