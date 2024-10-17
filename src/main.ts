@@ -1,35 +1,64 @@
-import { series } from "./data/data";  // Importamos los datos de series
+import { Serie } from './models/serie.js';
+import { series } from "./data/data.js";
 
 async function createSeriesTable() {
   try {
-      // Obtenemos el cuerpo de la tabla donde vamos a insertar las filas
-      const tableBody = document.getElementById('seriesTable')!.getElementsByTagName('tbody')[0];
+    const tableBody = document.getElementById('seriesTable')!.getElementsByTagName('tbody')[0];
 
-      // Iteramos sobre el array de series y llenamos la tabla
-      series.forEach(serie => {
-          // Creamos una nueva fila en la tabla
-          const row = tableBody.insertRow();
-          
-          // Insertamos las celdas para cada propiedad de la serie
-          row.insertCell(0).innerText = serie.id.toString();    // ID de la serie
-          row.insertCell(1).innerText = serie.name;             // Nombre de la serie
-          row.insertCell(2).innerText = serie.channel;          // Canal
-          row.insertCell(3).innerText = serie.seasons.toString(); // Temporadas
-      });
+    series.forEach(serieData => {
+      const serie = new Serie(
+        serieData.id,
+        serieData.name,
+        serieData.channel,
+        serieData.seasons,
+        serieData.sinopsis,
+        serieData.link,
+        serieData.image
+      );
 
-      // Calcular el promedio de temporadas
-      const totalSeasons = series.reduce((sum, serie) => sum + serie.seasons, 0);
-      const avgSeasons = totalSeasons / series.length;
+      const row = tableBody.insertRow();
 
-      // Mostrar el promedio en el elemento correspondiente
-      const avgElement = document.getElementById('average-seasons');
-      if (avgElement) {
-          avgElement.innerText = `Seasons average: ${avgSeasons.toFixed(0)}`;
-      }
+      row.insertCell(0).innerText = serie.id.toString();
+      const nameCell = row.insertCell(1);
+      nameCell.innerHTML = `<a href="#" class="text-decoration-none serie-link" data-id="${serie.id}">${serie.name}</a>`;
+      row.insertCell(2).innerText = serie.channel;
+      row.insertCell(3).innerText = serie.seasons.toString();
+
+      row.addEventListener('click', () => showSeriesDetail(serie));
+    });
+
+    // Calculate the average number of seasons
+    const totalSeasons = series.reduce((sum, serie) => sum + serie.seasons, 0);
+    const avgSeasons = totalSeasons / series.length;
+
+    // Display the average in the corresponding element
+    const avgElement = document.getElementById('average-seasons');
+    if (avgElement) {
+      avgElement.innerText = `Seasons average: ${avgSeasons.toFixed(0)}`;
+    }
   } catch (error) {
-      console.error('Error loading series table:', error);
+    console.error('Error loading series table:', error);
   }
 }
 
-// Ejecutamos la función cuando se cargue el DOM
+function showSeriesDetail(serie: Serie): void {
+  const serieDetailsCard = document.getElementById('serie-details') as HTMLElement;
+  const cardImage = serieDetailsCard.querySelector('.card-img-top') as HTMLImageElement;
+  const cardTitle = serieDetailsCard.querySelector('.card-title') as HTMLElement;
+  const cardText = serieDetailsCard.querySelector('.card-text') as HTMLElement;
+  const cardLink = serieDetailsCard.querySelector('.card-link') as HTMLAnchorElement;
+
+  // Actualizamos los detalles de la tarjeta con la información de la serie
+  cardImage.src = serie.image; // Asegúrate de que la serie tenga una propiedad 'image'
+  cardImage.alt = serie.name;
+  cardTitle.textContent = serie.name;
+  cardText.textContent = serie.sinopsis; // Asegúrate de que la serie tenga una propiedad 'sinopsis'
+  cardLink.textContent = serie.link;
+  cardLink.href = serie.link;
+
+  // Mostramos la tarjeta
+  serieDetailsCard.classList.remove('d-none');
+}
+
+
 document.addEventListener('DOMContentLoaded', createSeriesTable);
