@@ -43,14 +43,14 @@ function showSeriesDetail(serie) {
     const cardTitle = serieDetailsCard.querySelector('.card-title');
     const cardText = serieDetailsCard.querySelector('.card-text');
     const cardLink = serieDetailsCard.querySelector('.card-link');
-    // Actualizamos los detalles de la tarjeta con la información de la serie
-    cardImage.src = serie.image; // Asegúrate de que la serie tenga una propiedad 'image'
+    // Update the card details with the series information.
+    cardImage.src = serie.image;
     cardImage.alt = serie.name;
     cardTitle.textContent = serie.name;
-    cardText.textContent = serie.sinopsis; // Asegúrate de que la serie tenga una propiedad 'sinopsis'
+    cardText.textContent = serie.sinopsis;
     cardLink.textContent = serie.link;
     cardLink.href = serie.link;
-    // Mostramos la tarjeta
+    // Show the card
     serieDetailsCard.classList.remove('d-none');
 }
 document.addEventListener('DOMContentLoaded', createSeriesTable);
