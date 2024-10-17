@@ -20,23 +20,36 @@
         </div>
     </nav>
     <div class="container-fluid px-5">
-        <div class="col-12 col-lg-6 px-4">
-            <div class="table-responsive mt-3">
-                <table id="seriesTable" class="table table-hover">
-                    <thead class="bg-primary">
-                        <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Channel</th>
-                            <th>Seasons</th>
-                        </tr>
-                    </thead>
-                    <tbody class="bg-secondary"></tbody>
-                </table>
-                <p id="average-seasons"></p>
+        <div class="row mt-4">
+            <div class="col-12 col-lg-6 px-4">
+                <div class="table-responsive mt-3">
+                    <table id="seriesTable" class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Channel</th>
+                                <th>Seasons</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <p id="average-seasons"></p>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 px-4 d-flex justify-content-center justify-content-lg-start">
+                <div class="card d-none" style="width: 20rem;" id="serie-details">
+                    <img src="" class="card-img-top" alt="serie image">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text"></p>
+                        <a href="#" class="card-link text-decoration-none" target="_blank"></a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
 
     <script type="module" src="./src/scripts/models/serie.js"></script>
     <script type="module" src="./src/scripts/data/data.js"></script>
