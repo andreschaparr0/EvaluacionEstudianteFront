@@ -23,7 +23,7 @@ Para ejecutar el proyecto en tu máquina local, sigue estos pasos:
 1. **Clona el repositorio** :
 
    ```bash
-   git clone https://github.com/tu_usuario/Talleres-TypeScript.git
+   git clone https://github.com/GianK19/Talleres-TypeScript.git
    cd Talleres-TypeScript
 2. **Abre el archivo HTML** :
 
