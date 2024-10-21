@@ -16,15 +16,8 @@
 - **TypeScript**
 - **JavaScript**
 
-## Instalación
+## Resultado
 
-Para ejecutar el proyecto en tu máquina local, sigue estos pasos:
+Para observar el resultado contenido en el repositorio puede visitar el siguiente link:
 
-1. **Clona el repositorio** :
-
-   ```bash
-   git clone https://github.com/GianK19/Talleres-TypeScript.git
-   cd Talleres-TypeScript
-2. **Abre el archivo HTML** :
-
-   Abre `index.html` en tu navegador preferido. Para hacerlo de la manera mas sencilla, asegúrate de utilizar herramientas como Live Server en Visual Studio Code.
+[TV Series](https://giank19.github.io/Talleres-TypeScript/)
