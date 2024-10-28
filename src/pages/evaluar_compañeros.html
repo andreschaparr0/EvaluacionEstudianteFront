@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Evaluación</title>
+</head>
+<body>
+    <h2>Formulario de Evaluación</h2>
+
+    <!-- Autoevaluación -->
+    <section>
+        <h3>Autoevaluación</h3>
+        <form id="miFormulario">
+            <label for="auto_calificacion">Calificación (1-5):</label>
+            <select id="auto_calificacion" name="auto_calificacion" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select><br><br>
+
+            <label for="auto_comentario">Comentario:</label><br>
+            <textarea id="auto_comentario" name="auto_comentario" rows="3" cols="50"></textarea>
+
+            <hr>
+
+            <!-- Evaluación de Compañeros -->
+            <section>
+                <h3>Evaluación de tus compañeros</h3>
+
+                <!-- Evaluación para Compañero 1 -->
+                <div>
+                    <h4>Compañero 1</h4>
+                    <label for="comp1_calificacion">Calificación (1-5):</label>
+                    <select id="comp1_calificacion" name="comp1_calificacion" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select><br><br>
+
+                    <label for="comp1_comentario">Comentario:</label><br>
+                    <textarea id="comp1_comentario" name="comp1_comentario" rows="3" cols="50"></textarea>
+                </div>
+                <br>
+
+                <!-- Evaluación para Compañero 2 -->
+                <div>
+                    <h4>Compañero 2</h4>
+                    <label for="comp2_calificacion">Calificación (1-5):</label>
+                    <select id="comp2_calificacion" name="comp2_calificacion" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select><br><br>
+
+                    <label for="comp2_comentario">Comentario:</label><br>
+                    <textarea id="comp2_comentario" name="comp2_comentario" rows="3" cols="50"></textarea>
+                </div>
+                <br>
+
+                <!-- Evaluación para Compañero 3 -->
+                <div>
+                    <h4>Compañero 3</h4>
+                    <label for="comp3_calificacion">Calificación (1-5):</label>
+                    <select id="comp3_calificacion" name="comp3_calificacion" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select><br><br>
+
+                    <label for="comp3_comentario">Comentario:</label><br>
+                    <textarea id="comp3_comentario" name="comp3_comentario" rows="3" cols="50"></textarea>
+                </div>
+                <br>
+
+                <!-- Evaluación para Compañero 4 -->
+                <div>
+                    <h4>Compañero 4</h4>
+                    <label for="comp4_calificacion">Calificación (1-5):</label>
+                    <select id="comp4_calificacion" name="comp4_calificacion" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select><br><br>
+
+                    <label for="comp4_comentario">Comentario:</label><br>
+                    <textarea id="comp4_comentario" name="comp4_comentario" rows="3" cols="50"></textarea>
+                </div>
+            </section>
+
+            <br>
+            <button type="submit">Enviar Evaluación</button>
+        </form>
+        <button onclick="window.location.href='menu.html'">Volver al Menú</button>
+    </section>
+
+    <script src="main.js"></script>
+    <script>
+        document.getElementById("miFormulario").onsubmit = enviarFormulario;
+    </script>
+</body>
+</html>
+
+

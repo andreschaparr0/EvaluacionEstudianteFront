@@ -1,64 +1,55 @@
 import { Serie } from './models/serie.js';
 import { series } from "./data/data.js";
 
-async function createSeriesTable() {
+export async function enviarFormulario(event: Event) {
+  event.preventDefault(); // Evita el comportamiento de envío predeterminado
+
+  const formElement = document.getElementById("miFormulario") as HTMLFormElement;
+  const formData = new FormData(formElement);
+
   try {
-    const tableBody = document.getElementById('seriesTable')!.getElementsByTagName('tbody')[0];
-
-    series.forEach(serieData => {
-      const serie = new Serie(
-        serieData.id,
-        serieData.name,
-        serieData.channel,
-        serieData.seasons,
-        serieData.sinopsis,
-        serieData.link,
-        serieData.image
-      );
-
-      const row = tableBody.insertRow();
-
-      row.insertCell(0).innerText = serie.id.toString();
-      const nameCell = row.insertCell(1);
-      nameCell.innerHTML = `<a href="#" class="text-decoration-none serie-link" data-id="${serie.id}">${serie.name}</a>`;
-      row.insertCell(2).innerText = serie.channel;
-      row.insertCell(3).innerText = serie.seasons.toString();
-
-      row.addEventListener('click', () => showSeriesDetail(serie));
+    const response = await fetch('/ruta-del-servidor', {
+      method: 'POST',
+      body: formData,
     });
 
-    // Calculate the average number of seasons
-    const totalSeasons = series.reduce((sum, serie) => sum + serie.seasons, 0);
-    const avgSeasons = totalSeasons / series.length;
-
-    // Display the average in the corresponding element
-    const avgElement = document.getElementById('average-seasons');
-    if (avgElement) {
-      avgElement.innerText = `Seasons average: ${avgSeasons.toFixed(0)}`;
+    if (response.ok) {
+      // Redirige a finish.html si la respuesta es exitosa
+      window.location.href = "finish.html";
+    } else {
+      alert("Hubo un error en el envío.");
     }
   } catch (error) {
-    console.error('Error loading series table:', error);
+    console.error("Error:", error);
+    alert("Error en la conexión con el servidor.");
   }
 }
 
-function showSeriesDetail(serie: Serie): void {
-  const serieDetailsCard = document.getElementById('serie-details') as HTMLElement;
-  const cardImage = serieDetailsCard.querySelector('.card-img-top') as HTMLImageElement;
-  const cardTitle = serieDetailsCard.querySelector('.card-title') as HTMLElement;
-  const cardText = serieDetailsCard.querySelector('.card-text') as HTMLElement;
-  const cardLink = serieDetailsCard.querySelector('.card-link') as HTMLAnchorElement;
+async function enviarLogin(event) {
+  event.preventDefault(); // Previene el envío del formulario tradicional
 
-  // Update the card details with the series information.
-  cardImage.src = serie.image; 
-  cardImage.alt = serie.name;
-  cardTitle.textContent = serie.name;
-  cardText.textContent = serie.sinopsis;
-  cardLink.textContent = serie.link;
-  cardLink.href = serie.link;
+  // Obtiene los datos del formulario
+  const form = document.getElementById("loginForm");
+  const formData = new FormData(form);
 
-  // Show the card
-  serieDetailsCard.classList.remove('d-none');
+  try {
+      // Envía la solicitud POST al servidor (ajusta la URL a tu backend si es necesario)
+      const response = await fetch('/ruta-del-servidor/login', {
+          method: 'POST',
+          body: formData
+      });
+
+      if (response.ok) {
+          // Redirige a `menu.html` si el login es exitoso
+          window.location.href = 'menu.html';
+      } else {
+          alert("Error en el inicio de sesión. Inténtalo de nuevo.");
+      }
+  } catch (error) {
+      console.error("Error en la solicitud:", error);
+      alert("Hubo un problema con el servidor.");
+  }
 }
 
-
-document.addEventListener('DOMContentLoaded', createSeriesTable);
+// Asigna la función `enviarLogin` al evento `submit` del formulario
+    document.getElementById("loginForm").onsubmit = enviarLogin;
